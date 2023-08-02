@@ -231,8 +231,8 @@ class _HeaderWaves extends CustomPainter {
   }
 }
 
-class HeaderWavesDown extends StatelessWidget {
-  const HeaderWavesDown({super.key});
+class HeaderWavesDownGradient extends StatelessWidget {
+  const HeaderWavesDownGradient({super.key});
 
   @override
   Widget build(BuildContext context) {
@@ -240,18 +240,26 @@ class HeaderWavesDown extends StatelessWidget {
       // color: const Color(0xff615AAB),
       height: double.infinity,
       width: double.infinity,
-      child: CustomPaint(painter: _HeaderWavesDown()),
+      child: CustomPaint(painter: _HeaderWavesDownGradient()),
     );
   }
 }
 
-class _HeaderWavesDown extends CustomPainter {
+class _HeaderWavesDownGradient extends CustomPainter {
   @override
   void paint(Canvas canvas, Size size) {
     final paint = Paint();
+    // paint.color = const Color(0xff615AAB);
     paint.color = const Color(0xff615AAB);
+
     paint.style = PaintingStyle.fill;
     paint.strokeWidth = 20;
+    final Rect rect =
+        Rect.fromCircle(center: const Offset(180, 55), radius: 150);
+
+    const Gradient gradient = LinearGradient(
+        colors: [Color(0xff6D05e8), Color(0xffc012ff), Color(0xff6d05fc)]);
+    paint.shader = gradient.createShader(rect);
 
     final path = Path();
     path.moveTo(0, size.height);
