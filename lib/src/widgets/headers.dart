@@ -33,7 +33,7 @@ class HeaderDiagonal extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    return Container(
+    return SizedBox(
       // color: const Color(0xff615AAB),
       height: double.infinity,
       width: double.infinity,
@@ -72,7 +72,7 @@ class HeaderTriangular extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    return Container(
+    return SizedBox(
       // color: const Color(0xff615AAB),
       height: double.infinity,
       width: double.infinity,
@@ -111,7 +111,7 @@ class HeaderPico extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    return Container(
+    return SizedBox(
       // color: const Color(0xff615AAB),
       height: double.infinity,
       width: double.infinity,
@@ -151,7 +151,7 @@ class HeaderCurvo extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    return Container(
+    return SizedBox(
       // color: const Color(0xff615AAB),
       height: double.infinity,
       width: double.infinity,
@@ -193,7 +193,7 @@ class HeaderWaves extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    return Container(
+    return SizedBox(
       // color: const Color(0xff615AAB),
       height: double.infinity,
       width: double.infinity,
@@ -236,7 +236,7 @@ class HeaderWavesDownGradient extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    return Container(
+    return SizedBox(
       // color: const Color(0xff615AAB),
       height: double.infinity,
       width: double.infinity,
