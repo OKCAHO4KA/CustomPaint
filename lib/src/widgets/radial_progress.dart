@@ -84,12 +84,13 @@ class _MiRadialProgress extends CustomPainter {
   @override
   void paint(Canvas canvas, Size size) {
 //Gradient
-    final Rect rect = Rect.fromCircle(center: Offset(100, 0), radius: 100);
+    final Rect rect =
+        Rect.fromCircle(center: const Offset(100, 0), radius: 100);
 
     final Gradient gradiente = LinearGradient(colors: [
       colorArco!,
-      Color.fromARGB(255, 17, 70, 64),
-      Color.fromARGB(255, 19, 202, 6)
+      const Color.fromARGB(255, 17, 70, 64),
+      const Color.fromARGB(255, 19, 202, 6)
     ]); //Circulo
     final paint = Paint()
       ..strokeWidth = grosorCirculo!
