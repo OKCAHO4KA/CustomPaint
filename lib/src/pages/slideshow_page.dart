@@ -10,13 +10,11 @@ class SlideshowPage extends StatelessWidget {
     return const Scaffold(
       backgroundColor: Colors.indigo,
       body: Center(
-        child: Column(
-          children: [
-            Expanded(child: MiSlideshow()),
-            Expanded(child: MiSlideshow()),
-            Expanded(child: MiSlideshow())
-          ],
-        ),
+        child: Column(children: [
+          Expanded(child: MiSlideshow()),
+          Expanded(child: MiSlideshow()),
+          Expanded(child: MiSlideshow()),
+        ]),
       ),
     );
   }
@@ -30,7 +28,7 @@ class MiSlideshow extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Slideshow(
-      bulletActivo: 30, bulletDesactivo: 15,
+      bulletActivo: 20, bulletDesactivo: 10,
       colorActivo: const Color(0xff3F3D56), colorDesactivo: Colors.white,
       // pointesUp: true,
       slides: [

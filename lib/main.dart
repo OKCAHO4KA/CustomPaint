@@ -1,4 +1,4 @@
-import 'package:custom_painters/src/pages/slideshow_page.dart';
+import 'package:custom_painters/src/pages/pinterest_page.dart';
 import 'package:flutter/material.dart';
 
 void main() => runApp(const MyApp());
@@ -8,9 +8,9 @@ class MyApp extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    return const MaterialApp(
+    return MaterialApp(
         debugShowCheckedModeBanner: false,
         title: 'Diseños App',
-        home: SlideshowPage());
+        home: PinterestPage());
   }
 }
