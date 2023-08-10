@@ -194,10 +194,10 @@ class _Slide extends StatelessWidget {
 
 class _SliderModel with ChangeNotifier {
   double _currentPage = 0;
-  Color _colorActivo = Colors.blue;
-  Color _colorDesactivo = Colors.grey;
-  double _bulletActivo = 12;
-  double _bulletDesactivo = 12;
+  Color colorActivo = Colors.blue;
+  Color colorDesactivo = Colors.grey;
+  double bulletActivo = 12;
+  double bulletDesactivo = 12;
 
   double get currentPage => _currentPage;
 
@@ -205,28 +205,5 @@ class _SliderModel with ChangeNotifier {
     _currentPage = currentPage;
 
     notifyListeners();
-  }
-
-  Color get colorActivo => _colorActivo;
-
-  set colorActivo(Color colorNuevo) {
-    _colorActivo = colorNuevo;
-  }
-
-  Color get colorDesactivo => _colorDesactivo;
-  set colorDesactivo(Color colorNuevo) {
-    _colorDesactivo = colorNuevo;
-  }
-
-  double get bulletActivo => _bulletActivo;
-
-  set bulletActivo(double pixels) {
-    _bulletActivo = pixels;
-  }
-
-  double get bulletDesactivo => _bulletDesactivo;
-
-  set bulletDesactivo(double pixels) {
-    _bulletDesactivo = pixels;
   }
 }
