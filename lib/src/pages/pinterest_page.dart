@@ -1,4 +1,5 @@
 import 'package:custom_painters/src/widgets/pinterest_menu.dart';
+import 'package:custom_painters/theme/theme_changer.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_staggered_grid_view/flutter_staggered_grid_view.dart';
 import 'package:provider/provider.dart';
@@ -30,6 +31,8 @@ class _PinterestMenuLocation extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     final widthPantalla = MediaQuery.sizeOf(context).width;
+
+    final themeChanger = Provider.of<ThemeChanger>(context);
     return Positioned(
         bottom: 30,
         child: SizedBox(
@@ -58,8 +61,8 @@ class _PinterestMenuLocation extends StatelessWidget {
                       print('Icon supervised user circle');
                     }),
               ],
-              background: Colors.teal,
-              activeColor: Colors.yellow,
+              background: themeChanger.currentTheme.scaffoldBackgroundColor,
+              activeColor: themeChanger.currentTheme.indicatorColor,
               inactiveColor: Colors.white,
               mostrar: Provider.of<_MenuModel>(context).mostrar,
             ))));

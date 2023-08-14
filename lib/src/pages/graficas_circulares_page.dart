@@ -1,5 +1,7 @@
 import 'package:custom_painters/src/widgets/radial_progress.dart';
+import 'package:custom_painters/theme/theme_changer.dart';
 import 'package:flutter/material.dart';
+import 'package:provider/provider.dart';
 
 class GraficasCircularesScreen extends StatefulWidget {
   const GraficasCircularesScreen({super.key});
@@ -56,19 +58,19 @@ class _GraficasCircularesScreenState extends State<GraficasCircularesScreen> {
         Row(mainAxisAlignment: MainAxisAlignment.spaceEvenly, children: [
           CustomRadialProgress(
             largo: 100,
-            porcentaje: porcentaje,
+            porcentaje: porcentaje * 1.2,
             colorArco: Colors.teal,
           ),
           CustomRadialProgress(
             largo: 120,
-            porcentaje: porcentaje,
+            porcentaje: porcentaje * 1.6,
             colorArco: Colors.purple,
           )
         ]),
         Row(mainAxisAlignment: MainAxisAlignment.spaceEvenly, children: [
           CustomRadialProgress(
             largo: 140,
-            porcentaje: porcentaje,
+            porcentaje: porcentaje * 1.9,
             colorArco: Colors.orangeAccent,
           ),
           CustomRadialProgress(
@@ -97,6 +99,7 @@ class CustomRadialProgress extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
+    final themeChanger = Provider.of<ThemeChanger>(context);
     return SizedBox(
       width: largo,
       height: largo,
@@ -105,7 +108,7 @@ class CustomRadialProgress extends StatelessWidget {
         grosorArco: 10,
         porcentaje: porcentaje,
         colorArco: colorArco,
-        colorCirculo: Colors.white,
+        colorCirculo: themeChanger.currentTheme.textTheme.bodyMedium!.color,
       ),
     );
   }
