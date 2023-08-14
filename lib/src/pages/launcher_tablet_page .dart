@@ -4,8 +4,8 @@ import 'package:flutter/material.dart';
 import 'package:font_awesome_flutter/font_awesome_flutter.dart';
 import 'package:provider/provider.dart';
 
-class LauncherPage extends StatelessWidget {
-  const LauncherPage({super.key});
+class LauncherTabletPage extends StatelessWidget {
+  const LauncherTabletPage({super.key});
 
   @override
   Widget build(BuildContext context) {
@@ -13,7 +13,7 @@ class LauncherPage extends StatelessWidget {
 
     return Scaffold(
       appBar: AppBar(
-        title: const Text('Diseños en Flutter-Telefono'),
+        title: const Text('Diseños en Flutter-Tablet'),
         backgroundColor: appTheme.indicatorColor,
       ),
       body: const _ListaOpciones(),
