@@ -62,7 +62,7 @@ class _MenuPrincipal extends StatelessWidget {
                 width: double.infinity,
                 child: CircleAvatar(
                   backgroundColor: themeChanger.currentTheme.indicatorColor,
-                  child: Text('OL',
+                  child: const Text('OL',
                       style: TextStyle(
                           fontSize: 70,
                           color: Colors.white,

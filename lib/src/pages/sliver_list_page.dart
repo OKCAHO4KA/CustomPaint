@@ -142,8 +142,9 @@ class _Titulo extends StatelessWidget {
               style: TextStyle(
                   fontSize: 50,
                   fontWeight: FontWeight.w300,
-                  color:
-                      themeChanger.darkTheme ? Colors.grey : Color(0xff532128)),
+                  color: themeChanger.darkTheme
+                      ? Colors.grey
+                      : const Color(0xff532128)),
             )),
         Stack(
           children: [

@@ -9,17 +9,34 @@ class SlideshowPage extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
+    bool
+        isLarge; //чтобы на телефоне при перевороде горизонтально - показывалось 2 в ряд. а в вертикально -  2 в колонку
+    if (MediaQuery.of(context).size.height > 500) {
+      isLarge = true;
+    } else {
+      isLarge = false;
+    }
+
+    final children = [
+      const Expanded(child: MiSlideshow()),
+      const Expanded(child: MiSlideshow()),
+    ];
+
     return Scaffold(
-      backgroundColor:
-          Provider.of<ThemeChanger>(context).currentTheme.hoverColor,
-      body: const Center(
-        child: Column(children: [
-          Expanded(child: MiSlideshow()),
-          Expanded(child: MiSlideshow()),
-          Expanded(child: MiSlideshow()),
-        ]),
-      ),
-    );
+        backgroundColor:
+            Provider.of<ThemeChanger>(context).currentTheme.hoverColor,
+        body: (isLarge) ? Column(children: children) : Row(children: children)
+
+        // const Center(
+        // child:
+
+        // Column(children: [
+        //  Expanded(child: MiSlideshow()),
+        // Expanded(child: MiSlideshow()),
+        // Expanded(child: MiSlideshow()),
+        // ]),
+        // ),
+        );
   }
 }
 

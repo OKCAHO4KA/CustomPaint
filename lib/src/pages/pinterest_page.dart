@@ -30,36 +30,28 @@ class _PinterestMenuLocation extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    final widthPantalla = MediaQuery.sizeOf(context).width;
+    double widthPantalla = MediaQuery.sizeOf(context).width;
 
     final themeChanger = Provider.of<ThemeChanger>(context);
+
+    if (widthPantalla > 500) {
+      widthPantalla = widthPantalla - 300;
+    }
+
     return Positioned(
         bottom: 30,
         child: SizedBox(
             width: widthPantalla,
-            child: Align(
-                child: PinterestMenu(
+            child:
+                //aqui ***
+                Align(
+                    child: PinterestMenu(
               items: [
+                PinterestButton(icon: Icons.pie_chart, onPressed: () {}),
+                PinterestButton(icon: Icons.search, onPressed: () {}),
+                PinterestButton(icon: Icons.notifications, onPressed: () {}),
                 PinterestButton(
-                    icon: Icons.pie_chart,
-                    onPressed: () {
-                      print('Icon pie_chert');
-                    }),
-                PinterestButton(
-                    icon: Icons.search,
-                    onPressed: () {
-                      print('Icon search');
-                    }),
-                PinterestButton(
-                    icon: Icons.notifications,
-                    onPressed: () {
-                      print('Icon notifications');
-                    }),
-                PinterestButton(
-                    icon: Icons.supervised_user_circle,
-                    onPressed: () {
-                      print('Icon supervised user circle');
-                    }),
+                    icon: Icons.supervised_user_circle, onPressed: () {}),
               ],
               background: themeChanger.currentTheme.scaffoldBackgroundColor,
               activeColor: themeChanger.currentTheme.indicatorColor,
@@ -68,6 +60,20 @@ class _PinterestMenuLocation extends StatelessWidget {
             ))));
   }
 }
+
+/*  
+*** Row(children: [Spacer(),
+PinterestMenu(
+              items: [
+                PinterestButton(icon: Icons.pie_chart, onPressed: () {}),
+                PinterestButton(icon: Icons.search, onPressed: () {}),
+                PinterestButton(icon: Icons.notifications, onPressed: () {}),
+                PinterestButton(
+                    icon: Icons.supervised_user_circle, onPressed: () {}),
+                    ],
+                    Spacer(),
+])
+*/
 
 class PinterestGrid extends StatefulWidget {
   const PinterestGrid({
@@ -105,11 +111,20 @@ class _PinterestGridState extends State<PinterestGrid> {
 
   @override
   Widget build(BuildContext context) {
+    int count;
+    if (MediaQuery.of(context).size.width > 500 &&
+        MediaQuery.of(context).size.width < 800) {
+      count = 3;
+    } else if (MediaQuery.of(context).size.width > 800) {
+      count = 4;
+    } else {
+      count = 2;
+    }
     return Container(
       padding: const EdgeInsets.symmetric(horizontal: 20),
       child: MasonryGridView.count(
         controller: controller,
-        crossAxisCount: 2,
+        crossAxisCount: count,
         mainAxisSpacing: 4,
         crossAxisSpacing: 4,
         itemCount: items.length,

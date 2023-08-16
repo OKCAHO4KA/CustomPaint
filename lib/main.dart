@@ -1,11 +1,18 @@
+import 'package:custom_painters/src/models/layout_model.dart';
 import 'package:custom_painters/src/pages/launcher_page.dart';
 import 'package:custom_painters/src/pages/launcher_tablet_page%20.dart';
 import 'package:custom_painters/theme/theme_changer.dart';
 import 'package:flutter/material.dart';
 import 'package:provider/provider.dart';
 
+// void main() => runApp(ChangeNotifierProvider(
+//     create: (context) => ThemeChanger(2), child: const MyApp()));
+
 void main() => runApp(ChangeNotifierProvider(
-    create: (context) => ThemeChanger(2), child: const MyApp()));
+      create: (context) => LayoutModel(),
+      child: ChangeNotifierProvider(
+          create: (context) => ThemeChanger(2), child: const MyApp()),
+    ));
 
 class MyApp extends StatelessWidget {
   const MyApp({super.key});
@@ -22,9 +29,9 @@ class MyApp extends StatelessWidget {
           final screenSize = MediaQuery.of(context).size;
 
           if (screenSize.width > 500) {
-            return LauncherTabletPage();
+            return const LauncherTabletPage();
           } else {
-            return LauncherPage();
+            return const LauncherPage();
           }
 
           // print('Orientation $orientation');

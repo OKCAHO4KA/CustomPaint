@@ -1,4 +1,5 @@
 import 'package:custom_painters/routes/routes.dart';
+import 'package:custom_painters/src/models/layout_model.dart';
 import 'package:custom_painters/theme/theme_changer.dart';
 import 'package:flutter/material.dart';
 import 'package:font_awesome_flutter/font_awesome_flutter.dart';
@@ -10,13 +11,31 @@ class LauncherTabletPage extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     final appTheme = Provider.of<ThemeChanger>(context).currentTheme;
+    final themeChanger = Provider.of<ThemeChanger>(context);
+    final layoutModel = Provider.of<LayoutModel>(context);
 
     return Scaffold(
       appBar: AppBar(
         title: const Text('Diseños en Flutter-Tablet'),
         backgroundColor: appTheme.indicatorColor,
       ),
-      body: const _ListaOpciones(),
+      body: Row(
+        children: [
+          const SizedBox(
+            width: 300,
+            height: double.infinity,
+            child: _ListaOpciones(),
+          ),
+          Container(
+              width: 1,
+              height: double.infinity,
+              color: themeChanger.darkTheme
+                  ? Colors.grey
+                  : appTheme.indicatorColor),
+          Expanded(child: layoutModel.currentPage)
+        ],
+      ),
+      //  const _ListaOpciones(),
       drawer: const _MenuPrincipal(),
     );
   }
@@ -25,6 +44,7 @@ class LauncherTabletPage extends StatelessWidget {
 class _ListaOpciones extends StatelessWidget {
   const _ListaOpciones();
 
+  @override
   Widget build(BuildContext context) {
     final appTheme = Provider.of<ThemeChanger>(context).currentTheme;
     return ListView.separated(
@@ -38,8 +58,10 @@ class _ListaOpciones extends StatelessWidget {
         trailing:
             Icon(Icons.chevron_right_sharp, color: appTheme.indicatorColor),
         onTap: () {
-          Navigator.push(context,
-              MaterialPageRoute(builder: (context) => pageRoute[i].page));
+          // Navigator.push(context,
+          //     MaterialPageRoute(builder: (context) => pageRoute[i].page));
+          Provider.of<LayoutModel>(context, listen: false).currentPage =
+              pageRoute[i].page;
         },
       ),
     );
@@ -62,7 +84,7 @@ class _MenuPrincipal extends StatelessWidget {
                 width: double.infinity,
                 child: CircleAvatar(
                   backgroundColor: themeChanger.currentTheme.indicatorColor,
-                  child: Text('OL',
+                  child: const Text('OL',
                       style: TextStyle(
                           fontSize: 70,
                           color: Colors.white,
